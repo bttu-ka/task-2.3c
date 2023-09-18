@@ -18,30 +18,28 @@
     
     <h2>Match Score</h2>
     <p>Total Goals: {{ totalGoals }}</p>
-    <p>Total Fouls: {{ totalFouls }}</p>
+    
 
     
-    <h2>Player List</h2>
+    <h2>Player on the field </h2>
     <ul>
       <li v-for="player in players" :key="player.id">{{ player.name }}</li> 
     </ul>
 
     
     <button @click="scoreGoal">Score a Goal</button> 
-    <button @click="commitFoul">Commit Foul</button> 
+    
 
     
     <h2>Enter Match Details</h2>
     <label for="goals">Goals:</label>
     <input type="number" v-model="goals" /> 
     <br />
-    <label for="fouls">Fouls:</label>
-    <input type="number" v-model="fouls" /> 
-    <br />
+    
     <label for="manOfTheMatch">Man of the Match:</label>
     <select v-model="manOfTheMatch">
-      <option value="player1">Player 1</option>
-      <option value="player2">Player 2</option>
+      <option value="player1">Messi</option>
+      <option value="player2">Ronaldo</option>
     </select> 
     <br />
     <label for="matchSummary">Match Summary:</label>
@@ -74,13 +72,12 @@ const startMatch = () => {
 
 //Match Score
 const totalGoals = ref(0);
-const totalFouls = ref(0);
 
 //Player List
 const players = ref([
-  { id: 1, name: 'Player 1' },
-  { id: 2, name: 'Player 2' },
-  { id: 3, name: 'Player 3' },
+  { id: 1, name: 'Messi' },
+  { id: 2, name: 'Ronaldo' },
+  { id: 3, name: 'Mbappe' },
 ]);
 
 // Event Handling
@@ -88,13 +85,10 @@ const scoreGoal = () => {
   totalGoals.value++;
 };
 
-const commitFoul = () => {
-  totalFouls.value++;
-};
+
 
 //Football Match Form
 const goals = ref(0);
-const fouls = ref(0);
 const manOfTheMatch = ref('');
 const matchSummary = ref('');
 
@@ -112,7 +106,7 @@ const handleGoalEvent = (data) => {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: black;
+  background-color: pink;
   border: 1px solid #bb1f1f;
   box-shadow: 0 0 10px rgba(244, 236, 6, 0.1);
 }
